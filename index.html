@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나만의 마법 매거진</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #222;
+            --point-color: #e11d48;
+            --border-color: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Pretendard', 'Georgia', serif; 
+            background-color: #ffffff; 
+            color: var(--text-color); 
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+       
+        .magazine-layout {
+            max-width: 1400px;
+            margin: 0 auto;
+            border: 4px solid var(--border-color);
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
+            
+            
+            background-color: #d4c4a8;
+            box-shadow: 
+                0 0 0 4px rgba(139,115,85,0.2),
+                0 8px 16px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.6);
+            border: 4px solid #d4c4a8;
+            border-radius: 12px;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            border-bottom: 4px solid var(--border-color);
+            padding-bottom: 20px; margin-bottom: 20px;
+        }
+        header h1 { font-size: 3rem; font-weight: 900; }
+        
+        aside { 
+            padding: 10px; 
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+        }
+        main { 
+            border-left: 1px solid var(--border-color); 
+            border-right: 1px solid var(--border-color); 
+            padding: 0 20px;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .magic-card {
+            border-bottom: 1px solid #ccc; padding: 15px 0 15px 0; overflow: visible;
+            transition: transform 0.3s ease-out;
+            cursor: pointer;
+        }
+        .magic-card:hover {
+            transform: translateY(-15px);
+        }
+        .magic-card img { width: 100%; height: 180px; object-fit: cover; }
+
+        
+        .ticker-wrap { width: 100%; overflow: hidden; background: var(--border-color); color: #fff; padding: 10px 0; margin-bottom: 20px; }
+        .ticker-move {
+            display: inline-block; white-space: nowrap;
+            animation: slide-left 20s infinite linear;
+        }
+        
+       
+        @keyframes slide-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        
+        .badge-new {
+            display: inline-block; background: var(--point-color); color: white; padding: 2px 8px; font-size: 0.8rem; border-radius: 12px; margin-bottom: 10px;
+            animation: pulse-glow 2s infinite, float-up 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+        }
+
+        @keyframes float-up {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        
+        @media (max-width: 800px) {
+            .magazine-layout { grid-template-columns: 1fr; }
+            header { grid-column: 1; }
+            main { border: none; padding: 0; margin: 20px 0; }
+            .article-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="magazine-layout">
+        <header>
+            <h1>대단한 거 없는 매거진</h1>
+            <p>Vol. 1 | 2026. 04. XX | 내가 직접 나래이션한 내 소식</p>
+        </header>
+
+        
+        <div class="ticker-wrap" style="grid-column: 1 / -1;">
+            <div class="ticker-move">🔥 [속보] 이번 시험들 조져버림! · 한강이 떠오르는 날 · 오늘의 한강 물 온도? 🔥</div>
+        </div>
+
+        <aside>
+            <h2 style="border-bottom: 2px solid var(--point-color); margin-bottom: 15px;">Profile</h2>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd;">
+                <h4>편집장의 말</h4>
+                <p style="font-size: 0.9rem; color: #666;">그냥 자잘하게 지나가는 메거진이니 잘 보시고 즐기세요.</p>
+            </div>
+        </aside>
+
+        <main>
+            <div class="article-grid">
+                
+                <article class="magic-card">
+                    <span class="badge-new">NEW</span>
+                    <img src="https://img.hankyung.com/photo/202407/99.10841041.1.jpg" alt="기사 썸네일">
+                    <h3 style="font-size: 1.1rem; margin: 10px 0;">시험 상황</h3>
+                    <p style="font-size: 0.9rem; color: #555;">아주 고르게 조진 상황이라 거지같답니다.</p>
+                </article>
+
+                
+                <article class="magic-card">
+                    <span class="badge-new" style="background:#3b82f6;">HOT</span>
+                    <img src="https://blog.kakaocdn.net/dna/bmcUDw/btrO8zFMYqe/AAAAAAAAAAAAAAAAAAAAAEWjGTys2HpECPDk7g-2LQdLiXwouYrJgp7Ugk3VYiFY/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=HNQh5H1HLxx7aX7G7L1kKhrLxRk%3D" alt="기사 썸네일">
+                    <h3 style="font-size: 1.1rem; margin: 10px 0;">재정 상황</h3>
+                    <p style="font-size: 0.9rem; color: #555;">예. 안녕하세요. 개그지입니다.</p>
+                </article>
+            </div>
+        </main>
+
+        <aside>
+            <h2 style="border-bottom: 2px solid var(--point-color); margin-bottom: 15px;">Ad</h2>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Ryze_3.jpg" alt="광고" style="width: 100%; max-width: 150px; height: auto; margin: 0 auto; display: block; margin-bottom: 15px;">
+                <p style="text-align: center; font-weight: bold; color: var(--point-color); font-size: 1rem;">우린 당신을 원합니다!</p>
+            </div>
+        </aside>
+    </div>
+
+</body>
+</html>
